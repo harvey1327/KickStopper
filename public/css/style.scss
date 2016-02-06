@@ -1,0 +1,183 @@
+$page-width: 900px;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(247, 246, 249);
+  font-family: sans-serif;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-bottom: 1px solid rgb(205, 205, 205);
+  position: fixed;
+  width: 100%;
+  top: 0;
+
+  img {
+    height: 50%;
+    vertical-align: middle;
+  }
+}
+
+main {
+  padding-top: 60px;
+}
+
+.project-info {
+  width: 100%;
+  max-width: $page-width;
+  margin: 0 auto;
+
+  .title {
+    text-align: center;
+
+    h2 {
+      font-weight: 400;
+      font-size: 2.5em;
+    }
+  }
+
+  .info {
+    padding-top: 20px;
+
+    > * {
+      padding: 5px;
+    }
+
+    .image {
+      background-image: url("photo-original.jpg");
+      width: 50%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+      float: left;
+    }
+
+    .stats {
+      float: left;
+      width: 25%;
+      padding-top: 20px;
+
+      > div {
+        padding-top: 30px;
+        padding-left: 20px;
+      }
+
+      .big {
+        font-size: 2em;
+        display: block;
+        font-weight: 600;
+      }
+    }
+
+    .button {
+      float: left;
+      padding-top: 60px;
+      padding-left: 20px;
+      width: 50%;
+
+      button {
+        border: none;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        background-color: rgb(201, 46, 46);
+        padding: 15px 20px;
+        border-radius: 5px;
+        font-size: inherit;
+
+        &:hover {
+          background-color: rgb(145, 35, 35);
+        }
+
+        &:active {
+          position: relative;
+          top: 1px;
+          left: 1px;
+        }
+      }
+    }
+
+    &::after {
+      clear: both;
+      display: block;
+      content: '';
+    }
+  }
+}
+
+.projects {
+  width: 100%;
+  max-width: $page-width;
+  margin: 40px auto;
+  border: 1px solid rgb(205, 205, 205);
+  border-bottom: none;
+  background-color: rgb(255, 255, 255);
+
+  .project {
+    height: 300px;
+    border-bottom: 1px solid rgb(205, 205, 205);
+    display: block;
+
+    .image {
+      width: 40%;
+      height: 300px;
+      float: left;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .info {
+      padding: 0 20px;
+      float: left;
+    }
+  }
+}
+
+.hero {
+  background-image: url('Chbg93S.jpg');
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding-top: 80px;
+
+  h2 {
+    font-weight: 300;
+    font-size: 42px;
+    margin-bottom: 0;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 22px;
+  }
+}
+
+.search {
+  text-align: center;
+  padding-top: 40px;
+
+  input[type="search"] {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid rgb(205, 205, 205);
+    font-size: 30px;
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 5px;
+  }
+}
