@@ -1,0 +1,21 @@
+<section class="project-info">
+  <div class="title">
+    <h2>{{project.name}}</h2>
+    <p>by {{project.by}}</p>
+  </div>
+  <div class="info">
+    <div class="image"></div>
+    <div class="stats pro-stats">
+      <div class="backers"><span class="big">{{project.kickstarter.backers}}</span> backers</div>
+      <div class="money"><span class="big">£{{project.kickstarter.money}}</span> pledged of £{{project.pro.goal}} goal</div>
+      <div class="days"><span class="big">{{project.kickstarter.days}}</span> days to go</div>
+    </div>
+    <div class="stats anti-stats">
+      <div class="backers"><span class="big">{{project.kickstopper.backers}}</span> anti-backers</div>
+      <div class="money"><span class="big">£{{project.kickstopper.money}}</span> pledged of £{{project.anti.goal}} anti-goal</div>
+    </div>
+    <div class="button">
+      <button ng-click="stopButton();">Stop this project!</button>
+    </div>
+  </div>
+</section>
