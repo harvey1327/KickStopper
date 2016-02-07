@@ -25,14 +25,14 @@ public class JSONParser {
 			String author = jsonObject.getJSONObject(ProjectConstants.CREATOR).getString(ProjectConstants.NAME);
 			String picture = jsonObject.getJSONObject(ProjectConstants.PICTURE_P).getString(ProjectConstants.PICTURE_C);;
 			
-			project.setAuthor(author);
+			project.setAuthor(cleanString(author));
 			project.setBackers(backers);
 			project.setDeadline(deadline);
-			project.setDescription(description);
+			project.setDescription(cleanString(description));
 			project.setGoal(goal);
 			project.setId(id);
 			project.setPledge(pledge);
-			project.setTitle(title);
+			project.setTitle(cleanString(title));
 			project.setPicture(picture);
 			projectList.add(project);
 		}
@@ -59,7 +59,7 @@ public class JSONParser {
 			String antiBackers = containQuotes(ProjectConstants.ANTIBACKERS)+split+project.getAntiBackers();
 			String antiPledge = containQuotes(ProjectConstants.ANTIPLEDGE)+split+project.getAntiPledge();
 			String antiGoal = containQuotes(ProjectConstants.ANTIGOAL)+split+project.getAntiGoal();
-			String picture = containQuotes(ProjectConstants.PICTURE_P)+split+project.getPicture();
+			String picture = containQuotes(ProjectConstants.PICTURE_P)+split+containQuotes(project.getPicture());
 			
 			String[] startNode = {id,name,desc,author,backers,pledge,goal,deadline,picture};
 			String[] stopNode = {antiBackers,antiGoal,antiPledge};
@@ -76,6 +76,10 @@ public class JSONParser {
 		}
 		result=result+jsonEnd;
 		return result;
+	}
+	
+	private String cleanString(String data){
+		return data.replaceAll("\"", "");
 	}
 	
 	private String encaseNode(String data){

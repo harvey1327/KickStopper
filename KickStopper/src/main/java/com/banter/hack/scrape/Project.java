@@ -110,12 +110,14 @@ public class Project {
 	public String getPicture(){
 		return picture;
 	}
-
+	
 	public String getDeadline() {
 		String date = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar cal = Calendar.getInstance();
 		cal.setTimeInMillis(deadline);
+		
+//		Calendar today = Calendar
 		date = sdf.format(cal.getTime());
 		return date;
 	}
