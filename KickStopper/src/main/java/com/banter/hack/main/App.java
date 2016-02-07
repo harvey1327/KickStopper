@@ -10,7 +10,7 @@ public class App
 {
     public static void main(String[] args)
     {
-    	String searchTerm = "art";
+    	String searchTerm = "maxwell and friends play games";
 		List<Project> projectList = new Scrape().getKickstarterScrape(searchTerm);
 		String test = new JSONParser().parseProjectListToJSON(projectList);
 		System.out.println(test);
