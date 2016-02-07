@@ -1,7 +1,6 @@
 package com.banter.hack.jdbc;
 
 import java.sql.Date;
-import java.util.Calendar;
 
 
 /**

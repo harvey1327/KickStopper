@@ -21,4 +21,18 @@ public class ProjectConstants {
 	public static String ID = "id";
 	
 	public static String DEADLINE = "deadline";
+	
+	public static String ANTIBACKERS = "antibackers";
+	
+	public static String ANTIPLEDGE = "antipledge";
+	
+	public static String ANTIGOAL = "antigoal";
+	
+	public static String KICKSTARTER = "kickstarter";
+	
+	public static String KICKSTOPPER = "kickstopper";
+	
+	public static String PICTURE_P = "photo";
+	
+	public static String PICTURE_C = "full";
 }

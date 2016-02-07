@@ -1,17 +1,18 @@
 package com.banter.hack.main;
 
+import java.util.List;
+
+import com.banter.hack.scrape.JSONParser;
+import com.banter.hack.scrape.Project;
 import com.banter.hack.scrape.Scrape;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main(String[] args)
     {
     	String searchTerm = "art";
-		String test = new Scrape().getKickstarterScrape(searchTerm).toString();
+		List<Project> projectList = new Scrape().getKickstarterScrape(searchTerm);
+		String test = new JSONParser().parseProjectListToJSON(projectList);
 		System.out.println(test);
     }
 }
