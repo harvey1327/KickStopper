@@ -13,6 +13,8 @@ public class MainMethod {
 
 			Project mockProject = createDummyProjectObject();
 			JDBCPreparedStatementInsert.insertRecordIntoTable(mockProject);
+			
+			//JDBCPreparedStatementSelect.selectRecordsByProjectID(222);
 
 		} catch (SQLException e) {
 
