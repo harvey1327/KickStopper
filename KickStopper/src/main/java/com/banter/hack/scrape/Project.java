@@ -1,6 +1,10 @@
 package com.banter.hack.scrape;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class Project {
+
 
 	private String title = "";
 	
@@ -17,6 +21,36 @@ public class Project {
 	private Integer deadline = -1;
 		
 	private Integer id = -1;
+	
+	private Integer antiBackers = -1;
+	
+	private Integer antiPledge = -1;
+	
+	private Integer antiGoal = -1;
+	
+	public Integer getAntiBackers() {
+		return antiBackers;
+	}
+	
+	public void setAntiBackers(Integer antiBackers) {
+		this.antiBackers = antiBackers;
+	}
+	
+	public Integer getAntiPledge() {
+		return antiPledge;
+	}
+	
+	public void setAntiPledge(Integer antiPledge) {
+		this.antiPledge = antiPledge;
+	}
+	
+	public Integer getAntiGoal() {
+		return antiGoal;
+	}
+	
+	public void setAntiGoal(Integer antiGoal) {
+		this.antiGoal = antiGoal;
+	}
 	
 	public String getTitle() {
 		return title;
@@ -66,8 +100,13 @@ public class Project {
 		this.goal = goal;
 	}
 
-	public Integer getDeadline() {
-		return deadline;
+	public String getDeadline() {
+		String date = "";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(deadline);
+		date = sdf.format(cal.getTime());
+		return date;
 	}
 
 	public void setDeadline(Integer deadline) {

@@ -37,9 +37,13 @@ public class JSONParser {
 		return projectList;
 	}
 	
-	public String parseProjectListToJASON(List<Project> projectList){
+	public String parseProjectListToJSON(List<Project> projectList){
 		String result = "";
-		
+		String jsonBegin = "";
+		for(int i=0;i<projectList.size();i++){
+			Project project = projectList.get(i);
+			
+		}
 		return result;
 	}
 }

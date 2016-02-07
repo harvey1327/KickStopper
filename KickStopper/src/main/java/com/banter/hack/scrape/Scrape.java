@@ -13,18 +13,18 @@ public class Scrape {
 		return projectList;
 	}
 	
-	private List<Project> parseJSON(String JSON){
+	public List<Project> parseJSON(String JSON){
 		List<Project> projectList = new JSONParser().parseJSONToProjectList(JSON);
 		return projectList;
 	}
 	
-	private String createAJAX(String searchTerm){
+	public String createAJAX(String searchTerm){
 		String result = "";
 		result = AJAX_SEARCH+searchTerm;
 		return result;
 	}
 	
-	private String getJSON(String AJAX){
+	public String getJSON(String AJAX){
 		String JSON = new ScrapeURL().getURL(AJAX);
 		return JSON;
 	}

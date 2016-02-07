@@ -10,6 +10,8 @@ public class ProjectConstants {
 	
 	public static String CREATOR = "creator";
 	
+	public static String AUTHOR = "author";
+	
 	public static String BACKERS_COUNT= "backers_count";
 	
 	public static String PLEDGED = "pledged";
