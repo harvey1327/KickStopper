@@ -31,4 +31,8 @@ public class ProjectConstants {
 	public static String KICKSTARTER = "kickstarter";
 	
 	public static String KICKSTOPPER = "kickstopper";
+	
+	public static String PICTURE_P = "photo";
+	
+	public static String PICTURE_C = "full";
 }

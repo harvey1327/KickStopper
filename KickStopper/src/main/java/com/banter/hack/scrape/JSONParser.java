@@ -23,6 +23,7 @@ public class JSONParser {
 			Integer deadline = jsonObject.getInt(ProjectConstants.DEADLINE);
 			Integer id = jsonObject.getInt(ProjectConstants.ID);
 			String author = jsonObject.getJSONObject(ProjectConstants.CREATOR).getString(ProjectConstants.NAME);
+			String picture = jsonObject.getJSONObject(ProjectConstants.PICTURE_P).getString(ProjectConstants.PICTURE_C);;
 			
 			project.setAuthor(author);
 			project.setBackers(backers);
@@ -32,6 +33,7 @@ public class JSONParser {
 			project.setId(id);
 			project.setPledge(pledge);
 			project.setTitle(title);
+			project.setPicture(picture);
 			projectList.add(project);
 		}
 		return projectList;
@@ -57,8 +59,9 @@ public class JSONParser {
 			String antiBackers = containQuotes(ProjectConstants.ANTIBACKERS)+split+project.getAntiBackers();
 			String antiPledge = containQuotes(ProjectConstants.ANTIPLEDGE)+split+project.getAntiPledge();
 			String antiGoal = containQuotes(ProjectConstants.ANTIGOAL)+split+project.getAntiGoal();
+			String picture = containQuotes(ProjectConstants.PICTURE_P)+split+project.getPicture();
 			
-			String[] startNode = {id,name,desc,author,backers,pledge,goal,deadline};
+			String[] startNode = {id,name,desc,author,backers,pledge,goal,deadline,picture};
 			String[] stopNode = {antiBackers,antiGoal,antiPledge};
 			
 			String kickstartNode = createKickNode(ProjectConstants.KICKSTARTER,startNode,split);

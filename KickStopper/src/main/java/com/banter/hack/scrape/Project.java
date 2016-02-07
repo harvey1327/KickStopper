@@ -9,6 +9,8 @@ public class Project {
 
 	private String title = "";
 	
+	private String picture = "";
+	
 	private String description = "";
 	
 	private String author = "";
@@ -99,6 +101,14 @@ public class Project {
 
 	public void setGoal(Double goal) {
 		this.goal = goal;
+	}
+	
+	public void setPicture(String picture){
+		this.picture=picture;
+	}
+	
+	public String getPicture(){
+		return picture;
 	}
 
 	public String getDeadline() {
