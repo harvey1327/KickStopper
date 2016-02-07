@@ -38,23 +38,61 @@ public class JSONParser {
 	}
 	
 	public String parseProjectListToJSON(List<Project> projectList){
-		String result = "";
-		String jsonBegin = "{"+containQuotes(ProjectConstants.PROJECTS)+":[";
 		String split = ":";
+		String result = "";
+		String jsonBegin = "{"+containQuotes(ProjectConstants.PROJECTS)+split+"[";
 		String jsonEnd = "]}";
+		
+		result = jsonBegin;
 		for(int i=0;i<projectList.size();i++){
 			Project project = projectList.get(i);
 			String id = containQuotes(ProjectConstants.ID)+split+project.getId();
-			String name = containQuotes(ProjectConstants.NAME)+split+project.getTitle();
-			String desc = containQuotes(ProjectConstants.BLURB)+split+project.getDescription();
-			String author = containQuotes(ProjectConstants.AUTHOR)+split+project.getAuthor();
+			String name = containQuotes(ProjectConstants.NAME)+split+containQuotes(project.getTitle());
+			String desc = containQuotes(ProjectConstants.BLURB)+split+containQuotes(project.getDescription());
+			String author = containQuotes(ProjectConstants.AUTHOR)+split+containQuotes(project.getAuthor());
 			String backers = containQuotes(ProjectConstants.BACKERS_COUNT)+split+project.getBackers();
+			String pledge = containQuotes(ProjectConstants.PLEDGED)+split+project.getPledge();
 			String goal = containQuotes(ProjectConstants.GOAL)+split+project.getGoal();
-			String deadline = containQuotes(ProjectConstants.DEADLINE)+split+project.getDeadline();
+			String deadline = containQuotes(ProjectConstants.DEADLINE)+split+containQuotes(project.getDeadline());
 			String antiBackers = containQuotes(ProjectConstants.ANTIBACKERS)+split+project.getAntiBackers();
 			String antiPledge = containQuotes(ProjectConstants.ANTIPLEDGE)+split+project.getAntiPledge();
-			String antiGoal = containQuotes(ProjectConstants.ANTIGOAL)+split+project.getGoal();
+			String antiGoal = containQuotes(ProjectConstants.ANTIGOAL)+split+project.getAntiGoal();
+			
+			String[] startNode = {id,name,desc,author,backers,pledge,goal,deadline};
+			String[] stopNode = {antiBackers,antiGoal,antiPledge};
+			
+			String kickstartNode = createKickNode(ProjectConstants.KICKSTARTER,startNode,split);
+			String kickstopNode = createKickNode(ProjectConstants.KICKSTOPPER,stopNode,split);
+			String finalNode = kickstartNode+","+kickstopNode;
+			finalNode = encaseNode(finalNode);
+			
+			if(i!=(projectList.size()-1)){
+				finalNode=finalNode+",";
+			}
+			result=result+finalNode;
 		}
+		result=result+jsonEnd;
+		return result;
+	}
+	
+	private String encaseNode(String data){
+		String result = "";
+		result = "{"+data+"}";
+		return result;
+	}
+	
+	private String createKickNode(String parent, String[] child, String split){
+		String result = "";
+		String dataParent = containQuotes(parent)+split;
+		String dataChild = "";
+		for(int i=0;i<child.length;i++){
+			dataChild=dataChild+child[i];
+			if(i!=(child.length-1)){
+				dataChild=dataChild+",";
+			}
+		}
+		dataChild = encaseNode(dataChild);
+		result = dataParent+dataChild;
 		return result;
 	}
 	

@@ -1,10 +1,11 @@
 package com.banter.hack.scrape;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Project {
-
 
 	private String title = "";
 	
@@ -119,5 +120,26 @@ public class Project {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public List<String> getKickStarter(){
+		List<String> result = new ArrayList<String>();
+		result.add(id.toString());
+		result.add(title);
+		result.add(description);
+		result.add(author);
+		result.add(backers.toString());
+		result.add(pledge.toString());
+		result.add(goal.toString());
+		result.add(deadline.toString());
+		return result;
+	}
+	
+	public List<String> getKickStopper(){
+		List<String> result = new ArrayList<String>();
+		result.add(antiBackers.toString());
+		result.add(antiPledge.toString());
+		result.add(antiGoal.toString());
+		return result;
 	}
 }

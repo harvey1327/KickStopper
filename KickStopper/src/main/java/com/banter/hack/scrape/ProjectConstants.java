@@ -27,4 +27,8 @@ public class ProjectConstants {
 	public static String ANTIPLEDGE = "antipledge";
 	
 	public static String ANTIGOAL = "antigoal";
+	
+	public static String KICKSTARTER = "kickstarter";
+	
+	public static String KICKSTOPPER = "kickstopper";
 }
