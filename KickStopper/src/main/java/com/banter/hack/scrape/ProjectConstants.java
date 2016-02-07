@@ -21,4 +21,10 @@ public class ProjectConstants {
 	public static String ID = "id";
 	
 	public static String DEADLINE = "deadline";
+	
+	public static String ANTIBACKERS = "antibackers";
+	
+	public static String ANTIPLEDGE = "antipledge";
+	
+	public static String ANTIGOAL = "antigoal";
 }

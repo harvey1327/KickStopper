@@ -1,14 +1,8 @@
 package com.banter.hack.jdbc;
 
-import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class JDBCPreparedStatementInsert {
 
 

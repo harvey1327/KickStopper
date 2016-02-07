@@ -39,11 +39,27 @@ public class JSONParser {
 	
 	public String parseProjectListToJSON(List<Project> projectList){
 		String result = "";
-		String jsonBegin = "";
+		String jsonBegin = "{"+containQuotes(ProjectConstants.PROJECTS)+":[";
+		String split = ":";
+		String jsonEnd = "]}";
 		for(int i=0;i<projectList.size();i++){
 			Project project = projectList.get(i);
-			
+			String id = containQuotes(ProjectConstants.ID)+split+project.getId();
+			String name = containQuotes(ProjectConstants.NAME)+split+project.getTitle();
+			String desc = containQuotes(ProjectConstants.BLURB)+split+project.getDescription();
+			String author = containQuotes(ProjectConstants.AUTHOR)+split+project.getAuthor();
+			String backers = containQuotes(ProjectConstants.BACKERS_COUNT)+split+project.getBackers();
+			String goal = containQuotes(ProjectConstants.GOAL)+split+project.getGoal();
+			String deadline = containQuotes(ProjectConstants.DEADLINE)+split+project.getDeadline();
+			String antiBackers = containQuotes(ProjectConstants.ANTIBACKERS)+split+project.getAntiBackers();
+			String antiPledge = containQuotes(ProjectConstants.ANTIPLEDGE)+split+project.getAntiPledge();
+			String antiGoal = containQuotes(ProjectConstants.ANTIGOAL)+split+project.getGoal();
 		}
+		return result;
+	}
+	
+	private String containQuotes(String tag){
+		String result = "\""+tag+"\"";
 		return result;
 	}
 }
