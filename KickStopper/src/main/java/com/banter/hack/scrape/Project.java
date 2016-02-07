@@ -3,6 +3,7 @@ package com.banter.hack.scrape;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Project {
@@ -112,14 +113,20 @@ public class Project {
 	}
 	
 	public String getDeadline() {
-		String date = "";
+		String dateDeadline = "";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Calendar cal = Calendar.getInstance();
-		cal.setTimeInMillis(deadline);
 		
-//		Calendar today = Calendar
-		date = sdf.format(cal.getTime());
-		return date;
+		Date now = Calendar.getInstance().getTime();
+		
+		Calendar end = Calendar.getInstance();
+		end.setTimeInMillis(deadline);
+		
+		long finalinmilli = now.getTime()+end.getTimeInMillis();
+		
+		end.setTimeInMillis(finalinmilli);
+		
+		dateDeadline = sdf.format(end.getTime());
+		return dateDeadline;
 	}
 
 	public void setDeadline(Integer deadline) {
